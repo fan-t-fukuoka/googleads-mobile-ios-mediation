@@ -194,9 +194,10 @@
   [strongConnector adapter:strongAdapter didFailToLoadRewardBasedVideoAdwithError:error];
 }
 
-- (void)rewardedVideoAdComplete:(FBRewardedVideoAd *)rewardedVideoAd {
+- (void)rewardedVideoAdVideoComplete:(FBRewardedVideoAd *)rewardedVideoAd {
   id<GADMRewardBasedVideoAdNetworkConnector> strongConnector = _rewardBasedVideoAdConnector;
   id<GADMRewardBasedVideoAdNetworkAdapter> strongAdapter = _rewardBasedVideoAdAdapter;
+  [strongConnector adapterDidCompletePlayingRewardBasedVideoAd:strongAdapter];
   [strongConnector adapter:strongAdapter
       didRewardUserWithReward:[[GADAdReward alloc] initWithRewardType:@""
                                                          rewardAmount:[NSDecimalNumber one]]];
